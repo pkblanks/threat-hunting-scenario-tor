@@ -67,6 +67,15 @@ DeviceNetworkEvents
 | project Timestamp, DeviceName, InitiatingProcessAccountName, InitiatingProcessFileName, RemoteIP, RemotePort, RemoteUrl
 | order by Timestamp desc
 
+// TOR browser outbound connections made over ports 80 or 443 from a non-system account on device
+DeviceNetworkEvents
+| where DeviceName == "paa-threat-hunt"
+| where InitiatingProcessAccountName != "system"
+| where InitiatingProcessFileName in ("tor.exe", "firefox.exe")
+| where RemotePort in ( 80, 443) // Other ports not tor ports
+| project Timestamp, DeviceName, InitiatingProcessAccountName, ActionType, RemoteIP, RemotePort, RemoteUrl, InitiatingProcessFileName, InitiatingProcessFolderPath  
+| order by Timestamp desc
+
 // User shopping list was created and, changed, or deleted
 DeviceFileEvents
 | where FileName contains "shopping-list.txt"

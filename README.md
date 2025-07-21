@@ -78,7 +78,7 @@ DeviceProcessEvents
 
 ---
 
-### 4. Searched the `DeviceNetworkEvents` Table for TOR Network Connections
+### 4a. Searched the `DeviceNetworkEvents` Table for TOR Network Connections
 
 Searched for any indication the TOR browser was used to establish a connection using any of the known TOR ports. At `2024-11-08T22:18:01.1246358Z`, an employee on the "threat-hunt-lab" device successfully established a connection to the remote IP address `176.198.159.33` on port `9001`. The connection was initiated by the process `tor.exe`, located in the folder `c:\users\employee\desktop\tor browser\browser\torbrowser\tor\tor.exe`. There were a couple of other connections to sites over port `443`.
 
@@ -93,6 +93,25 @@ DeviceNetworkEvents
 | order by Timestamp desc
 ```
 <img width="1212" alt="image" src="https://github.com/pkblanks/threat_hunt_files/blob/main/4.%20DeviceNetworks-tor_ports_accessed.jpg">
+
+---
+### 4b. Searched the DeviceNetworkEvents Table for TOR Network Connections over Common Web Ports
+
+Multiple connections were identified over ports 80 and 443, indicating that the TOR Browser was used to access external websites via standard HTTP/HTTPS protocols, likely to bypass detection or conceal browsing activity.
+
+**Query used to locate events:**
+
+```kql
+DeviceNetworkEvents
+| where DeviceName == "paa-threat-hunt"
+| where InitiatingProcessAccountName != "system"
+| where InitiatingProcessFileName in ("tor.exe", "firefox.exe")
+| where RemotePort in ( 80, 443) // Other ports not tor ports
+| project Timestamp, DeviceName, InitiatingProcessAccountName, ActionType, RemoteIP, RemotePort, RemoteUrl, InitiatingProcessFileName, InitiatingProcessFolderPath  
+| order by Timestamp desc
+
+```
+<img width="1212" alt="image" src="https://github.com/pkblanks/threat_hunt_files/blob/main/4b.%20DeviceNetworks-other_ports_accessed.jpg">
 
 ---
 

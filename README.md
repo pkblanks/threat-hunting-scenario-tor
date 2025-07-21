@@ -128,10 +128,10 @@ DeviceNetworkEvents
 - **Action:** File download detected.
 - **File Path:** `C:\Users\employee\Downloads\tor-browser-windows-x86_64-portable-14.0.1.exe`
 
--- Jul 14, 2025 @ 3:08 PM – User downloaded a TOR installer. Multiple TOR-related files appeared on the Desktop, including:
-📄 tor-shopping-list.txt
-📁 Tor Browser directory with various components
-Path: C:\Users\employee_pb\Desktop\
+- Jul 14, 2025 @ 3:08 PM – User downloaded a TOR installer. Multiple TOR-related files appeared on the Desktop, including:
+-- 📄 tor-shopping-list.txt
+-- 📁 Tor Browser directory with various components
+-- Path: C:\Users\employee_pb\Desktop\
 
 
 ### 2. Process Execution - TOR Browser Installation

@@ -119,14 +119,20 @@ DeviceNetworkEvents
 
 ---
 
-## Chronological Event Timeline 
+## 🕒 Chronological Event Timeline: TOR Activity by User employee_pb
 
-### 1. File Download - TOR Installer
+### 1. Initial TOR Download and File Activity
 
 - **Timestamp:** `2024-11-08T22:14:48.6065231Z`
 - **Event:** The user "employee" downloaded a file named `tor-browser-windows-x86_64-portable-14.0.1.exe` to the Downloads folder.
 - **Action:** File download detected.
 - **File Path:** `C:\Users\employee\Downloads\tor-browser-windows-x86_64-portable-14.0.1.exe`
+
+-- Jul 14, 2025 @ 3:08 PM – User downloaded a TOR installer. Multiple TOR-related files appeared on the Desktop, including:
+📄 tor-shopping-list.txt
+📁 Tor Browser directory with various components
+Path: C:\Users\employee_pb\Desktop\
+
 
 ### 2. Process Execution - TOR Browser Installation
 

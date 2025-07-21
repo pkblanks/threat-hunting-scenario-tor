@@ -84,7 +84,7 @@ DeviceFileEvents
 ---
 
 ## Created By:
-- **Author Name**: Josh Madakor
+- **Author Name**: Paa Kwesi Blankson
 - **Author Contact**: https://www.linkedin.com/in/paa-kwesi-blankson-4a525586/
 - **Date**: July 20, 2025
 
